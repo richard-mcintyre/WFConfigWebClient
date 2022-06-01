@@ -1,6 +1,7 @@
 import { Utils } from './utils.js';
 
 const serverUrl = '192.168.1.21:5000';
+const baseServerUrl = `https//${serverUrl}`;
 
 const documentWellContainer = document.querySelector('#document-well-container');
 const documentWell = document.querySelector('#document-well');
@@ -23,7 +24,7 @@ function resizeElements() {
 }
 
 async function initialize() {
-    const response = await fetch(`http://${serverUrl}/api/life-cycle`);
+    const response = await fetch(`${baseServerUrl}/api/life-cycle`);
     const lifeCycles = await response.json();
     
     initializeTree(lifeCycles);
@@ -42,7 +43,7 @@ async function initializeTree(lifeCycles) {
 }
 
 async function addQueuesToTree(parent, lifeCycle) {
-    const response = await fetch(`http://${serverUrl}/api/life-cycle/${lifeCycle.id}/queue`);
+    const response = await fetch(`${baseServerUrl}/api/life-cycle/${lifeCycle.id}/queue`);
     const queues = await response.json();
 
     for(let queue of queues) {
@@ -82,7 +83,7 @@ function addQueueChildTreeItems(parent, queue) {
 }
 
 async function addAdHocTaskFolderTreeItems(parent, queue) {
-    const response = await fetch(`http://${serverUrl}/api/life-cycle/${queue.lifeCycleId}/queue/${queue.id}/ad-hoc-task`);
+    const response = await fetch(`${baseServerUrl}/api/life-cycle/${queue.lifeCycleId}/queue/${queue.id}/ad-hoc-task`);
     const adhocTasks = await response.json();
 
     for(let adhocTask of adhocTasks) {
@@ -97,7 +98,7 @@ async function addAdHocTaskFolderTreeItems(parent, queue) {
 }
 
 async function addTaskListTaskTreeItems(parent, data) {
-    const response = await fetch(`http://${serverUrl}/api/tasklist/${data.taskListId}/task`);
+    const response = await fetch(`${baseServerUrl}/api/tasklist/${data.taskListId}/task`);
     const tasks = await response.json();
 
     for(let task of tasks) {
