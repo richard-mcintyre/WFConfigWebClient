@@ -1,0 +1,51 @@
+.tree-container {
+    font-size: 10pt;
+}
+
+.tree-item-inner-container {
+    display: grid;
+    grid-template-columns: 15px 20px auto;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.tree-group {
+    padding-left: 10px;
+}
+
+.caption {
+    cursor: pointer;
+    padding-top: 1px;
+    white-space: nowrap;
+}
+
+.caption:hover {
+    text-decoration: underline;
+}
+
+.tree-item-expander-img {
+    width: 16px;
+}
+
+.tree-item-expander-img[data-open='false'] {
+    content: url('images/chevron_right.png');
+}
+
+.tree-item-expander-img[data-open='true'] {
+    content: url('images/chevron_down.png');
+}
+
+.tree-item-img-default {
+    content: url('images/folder16x16.png');
+}
+
+.tree-item-with-children {
+    list-style-type: none;
+}
+
+.tree-item {
+    list-style-type: none;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
