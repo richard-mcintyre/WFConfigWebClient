@@ -33,7 +33,7 @@ async function initialize() {
 async function initializeTree(lifeCycles) {
     for(let lifeCycle of lifeCycles) {
         tree.addItem({
-            image: './images/lifecycle16x16.png',
+            image: './images/LifeCycle16x16.png',
             caption: lifeCycle.name,
             clickCallback: () => populateDocWell('lifeCycleType', lifeCycle),
             createChildrenCallback: lifeCycle.hasQueues ? addQueuesToTree : null,
@@ -108,15 +108,15 @@ async function addTaskListTaskTreeItems(parent, data) {
         let itemData = task;
 
         if(task.kind === 'action') {
-            image = './images/action16x16.png';
+            image = './images/Action16x16.png';
             docWellKind = 'actionType';
         } else if(task.kind === 'rule') {
-            image = './images/rule16x16.png';
+            image = './images/Rule16x16.png';
             docWellKind = 'ruleType';
 
             fnCreateChildren = (p, d) => {
                 tree.addItem({
-                    image: './images/ontruetasklist16x16.png',
+                    image: './images/OnTrueTaskList16x16.png',
                     caption: 'On True',
                     clickCallback: () => populateDocWell('ontrueorfalseTaskType', task),
                     createChildrenCallback: d.onTrueHasTasks ? addTaskListTaskTreeItems : null,
@@ -124,7 +124,7 @@ async function addTaskListTaskTreeItems(parent, data) {
                 }, p);
 
                 tree.addItem({
-                    image: './images/onfalsetasklist16x16.png',
+                    image: './images/OnFalseTaskList16x16.png',
                     caption: 'On False',
                     clickCallback: () => populateDocWell('ontrueorfalseTaskType', task),
                     createChildrenCallback: d.onFalseHasTasks ? addTaskListTaskTreeItems : null,
@@ -132,7 +132,7 @@ async function addTaskListTaskTreeItems(parent, data) {
                 }, p);                
             };
         } else if(task.kind === 'tasklist') {
-            image = './images/tasklist16x16.png';
+            image = './images/TaskList16x16.png';
             docWellKind = 'tasklistType';
 
             fnCreateChildren = task.hasTasks ? addTaskListTaskTreeItems : null;
