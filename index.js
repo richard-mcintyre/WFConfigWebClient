@@ -1,7 +1,7 @@
 import { Utils } from './utils.js';
 
 const serverUrl = '192.168.1.21:5000';
-const baseServerUrl = `https//${serverUrl}`;
+const baseServerUrl = `https://${serverUrl}`;
 
 const documentWellContainer = document.querySelector('#document-well-container');
 const documentWell = document.querySelector('#document-well');
